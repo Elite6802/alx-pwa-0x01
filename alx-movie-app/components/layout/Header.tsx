@@ -1,25 +1,26 @@
-import React from 'react';
+import Link from "next/link"
+import Button from "../commons/Button"
 
-/**
- * The main header component for application navigation.
- */
 const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-10 p-4 bg-gray-900 shadow-lg">
-      <div className="container flex items-center justify-between mx-auto">
-        <h1 className="text-2xl font-extrabold text-indigo-400">
-          ALX MovieApp
-        </h1>
-        <nav>
-          <ul className="flex space-x-4">
-            <li><a href="/" className="text-gray-300 hover:text-indigo-400">Home</a></li>
-            <li><a href="/search" className="text-gray-300 hover:text-indigo-400">Search</a></li>
-            <li><a href="/favorites" className="text-gray-300 hover:text-indigo-400">Favorites</a></li>
-          </ul>
+    <header className="h-28 flex items-center bg-[#171D22] px-4 md:px-16 lg:px-44 text-white">
+      <div className="flex items-center justify-between w-full">
+        <h2 className="text-xl md:text-4xl font-semibold">Cine<span className="text-[#E2D609]">Seek</span></h2>
+        <nav className="hidden md:flex flex-1 justify-center space-x-8">
+          <Link href="/" className="hover:text-[#E2D609] px-4 md:px-8 text-xl transition-colors duration-300 font-semibold">Home</Link>
+          <Link href="/movies" className="hover:text-[#E2D609] px-4 md:px-8 text-xl transition-colors duration-300 font-semibold">Movies</Link>
+          <Link href="/contact" className="hover:text-[#E2D609] px-4 md:px-8 text-xl transition-colors duration-300 font-semibold">Contact</Link>
         </nav>
+        <div className="flex md:hidden">
+          <Button title="Sign in" />
+        </div>
+        <div className="hidden md:flex">
+          <Button title="Sign in" />
+        </div>
       </div>
     </header>
-  );
-};
 
-export default Header;
+  )
+}
+
+export default Header

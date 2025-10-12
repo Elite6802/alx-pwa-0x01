@@ -1,24 +1,11 @@
-import React from 'react';
+import { ButtonProps } from "@/interfaces";
 
-// Define props for the common Button component
-interface ButtonProps {
-  children: React.ReactNode;
-  onClick?: () => void;
-  className?: string;
-}
-
-/**
- * A reusable Button component for common interactions.
- */
-const Button: React.FC<ButtonProps> = ({ children, onClick, className = '' }) => {
+const Button: React.FC<ButtonProps> = ({ title, action }) => {
   return (
-    <button
-      onClick={onClick}
-      className={`px-4 py-2 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 transition-colors ${className}`}
-    >
-      {children}
+    <button onClick={action} className="px-8 py-2 border-2 border-[#E2D609] rounded-full hover:bg-[#E2D609] hover:text-black transition-colors duration-300">
+      {title}
     </button>
-  );
-};
+  )
+}
 
 export default Button;
