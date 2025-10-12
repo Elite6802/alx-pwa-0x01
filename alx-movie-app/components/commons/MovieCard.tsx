@@ -1,29 +1,19 @@
-import React from 'react';
+import { MovieProps } from "@/interfaces"
+import Image from "next/image"
 
-// Define a basic type for movie data structure
-interface MovieCardProps {
-  title: string;
-  releaseYear: number;
-  posterUrl?: string;
-}
-
-/**
- * Displays summarized movie information.
- */
-const MovieCard: React.FC<MovieCardProps> = ({ title, releaseYear, posterUrl }) => {
+const MovieCard: React.FC<MovieProps> = ({ title, posterImage, releaseYear }) => {
   return (
-    <div className="max-w-xs overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-xl hover:shadow-2xl">
-      <img
-        className="object-cover w-full h-64"
-        src={posterUrl || 'https://placehold.co/400x600/1e293b/ffffff?text=No+Poster'}
-        alt={title}
-      />
-      <div className="p-4">
-        <h3 className="text-xl font-bold text-gray-900 truncate">{title}</h3>
-        <p className="text-sm text-gray-500 mt-1">Released: {releaseYear}</p>
+    <div className="h-[563px]">
+      <div>
+        <Image className="h-[430px] w-full rounded-md hover:cursor-pointer" src={posterImage} width={100} height={100} alt={title} />
+
+      </div>
+      <div className="flex justify-between py-4">
+        <p className="text-xl font-bold">{title}</p>
+        <p className="text-xl text-[#E2D609]">{releaseYear}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MovieCard;
+export default MovieCard
